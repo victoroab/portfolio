@@ -1,6 +1,8 @@
 ---
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
+import projectImage from '@assets/images/project.png';
+import vomentor2 from '@assets/images/vomentor2.webp';
 
 const projects = await getCollection('projects', ({ data }) => {
 	return !data.inProgress;
@@ -15,15 +17,26 @@ const projects = await getCollection('projects', ({ data }) => {
 	<h2 class="font-monospace text-2xl text-purple lg:text-4xl">My Projects</h2>
 	<span class="mb-10 h-1 w-10 bg-purple"></span>
 	<div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
+		<Card
+			url="https://fypplayground-client.vercel.app"
+			title="Vomentor"
+			alt="Landing Page of vomentor"
+			tags={[]}
+			img={vomentor2}
+		/>
+
 		{
-			projects.map((project) => (
-				<Card
-					url={project.data.link}
-					title={project.data.title}
-					alt={project.data.img_alt}
-					tags={project.data.tags}
-				/>
-			))
+			projects
+				.filter((project) => project.data.title !== 'Vomentor')
+				.map((project) => (
+					<Card
+						url={project.data.link}
+						title={project.data.title}
+						alt={project.data.img_alt}
+						tags={project.data.tags}
+						img={projectImage}
+					/>
+				))
 		}
 	</div>
 	<a
