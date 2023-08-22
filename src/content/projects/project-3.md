@@ -1,5 +1,5 @@
 ---
-inProgress: false
+inProgress: true
 title: a
 img_alt: project image alt text
 link: a
