@@ -3,6 +3,7 @@ import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
 import projectImage from '@assets/images/project.png';
 import vomentor2 from '@assets/images/vomentor2.webp';
+import auctionish from '@assets/images/auctionish.webp';
 
 const projects = await getCollection('projects', ({ data }) => {
 	return !data.inProgress;
@@ -23,6 +24,13 @@ const projects = await getCollection('projects', ({ data }) => {
 			alt="Landing Page of vomentor"
 			tags={[]}
 			img={vomentor2}
+		/>
+		<Card
+			url="https://auctionish.vercel.app"
+			title="Auctionish"
+			alt="Auctionish web app"
+			tags={[]}
+			img={auctionish}
 		/>
 
 		{
